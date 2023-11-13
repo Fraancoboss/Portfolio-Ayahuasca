@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Evaluación Ayahuasca</title>
+    <style>
+        .mensaje {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .recomendacion-no {
+            color: red;
+        }
+
+        .recomendacion-si {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulario de Evaluación Ayahuasca</h2>
+
+    <form onsubmit="return evaluarConsumo()" method="post">
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required>
+
+        <br>
+
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" required>
+
+        <br>
+
+        <input type="submit" value="Evaluar Seguridad">
+    </form>
+
+    <div id="resultado" class="mensaje"></div>
+
+    <script>
+        function evaluarConsumo() {
+            var edad = document.getElementById('edad').value;
+            var peso = document.getElementById('peso').value;
+            var resultadoDiv = document.getElementById('resultado');
+
+            if (edad < 18 || peso < 70) {
+                resultadoDiv.innerHTML = '<p class="recomendacion-no">No es recomendable el consumo de ayahuasca si eres menor de 18 años o pesas menos de 70 kilos.</p>';
+            } else {
+                resultadoDiv.innerHTML = '<p class="recomendacion-si">Eres apto para el consumo de ayahuasca.</p>';
+            }
+
+            return false; 
+        }
+    </script>
+
+<h2>Ventajas y Desventajas de la Ayahuasca</h2>
+
+<table>
+  <tr>
+    <th>Categoría</th>
+    <th>Ventajas</th>
+    <th>Desventajas</th>
+  </tr>
+  <tr>
+    <td>Aspectos Espirituales</td>
+    <td>Promueve la introspección y la conexión espiritual.</td>
+    <td>Puede ser una experiencia intensa y desafiante.</td>
+  </tr>
+  <tr>
+    <td>Aspectos Psicológicos</td>
+    <td>Puede ayudar en el tratamiento de trastornos mentales.</td>
+    <td>Riesgo de experiencias negativas y psicosis en casos extremos.</td>
+  </tr>
+  <tr>
+    <td>Aspectos Físicos</td>
+    <td>Uso tradicional en la medicina indígena para diversas dolencias.</td>
+    <td>Riesgos físicos como náuseas, vómitos y aumento de la presión arterial.</td>
+  </tr>
+
+
+</table>
+</body>
+</html>
